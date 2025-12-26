@@ -1,0 +1,260 @@
+/* HOME PAGE STYLES */
+.home-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* Remove fixed min-height */
+  align-items: start; /* Align items to the top */
+}
+
+/* MAIN RACE PANEL (LEFT SIDE) */
+.race-panel {
+  border: 3px solid #163b6b;
+  border-radius: 14px;
+  background: white;
+  padding: 25px;
+}
+
+/* Title "LOCAL RACE" */
+.race-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f2c4d;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #cbd5e0;
+  margin-bottom: 20px;
+}
+
+/* Section title: Governor / Vice Governor */
+.position-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #163b6b;
+  margin: 10px 0 15px;
+}
+
+/* Candidate row */
+.candidate-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Number inside the blue rounded circle */
+.cand-number {
+  background: #0f2c4d;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+/* name + bar container */
+.cand-info {
+  flex: 1;
+}
+
+/* Candidate Name */
+.cand-name {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #163b6b;
+  margin-bottom: 4px;
+}
+
+/* Progress bar background */
+.progress-bar {
+  width: 100%;
+  height: 28px;
+  background: #f1f1f1;
+  border-radius: 12px;
+  border: 2px solid #d4d4d4;
+  overflow: hidden;
+}
+
+/* filled portion */
+.progress-fill {
+  height: 100%;
+  background: #cdd5df;
+  border-radius: 12px 0 0 12px;
+}
+
+
+/* Left side - Main content */
+.home-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.main-description {
+  font-size: 1.25rem;
+  color: #4a5568;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+.vote-now-btn {
+  display: inline-block;
+  background-color: #2d3748;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  max-width: 200px;
+}
+
+.vote-now-btn:hover {
+  background-color: #1a202c;
+}
+
+/* Right side - Date/Time box */
+.home-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.datetime-box {
+  background-color: #1a365d;
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.datetime-box .date {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.datetime-box .time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+  }
+  
+  .home-left, .home-right {
+    text-align: center;
+  }
+  
+  .main-title {
+    font-size: 2.8rem;
+  }
+  
+  .main-description {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .vote-now-btn {
+    margin: 0 auto;
+  }
+  
+  .datetime-box {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+  
+  .main-description {
+    font-size: 1.1rem;
+  }
+  
+  .datetime-box {
+    padding: 1.5rem;
+  }
+  
+  .datetime-box .date {
+    font-size: 1.25rem;
+  }
+  
+  .datetime-box .time {
+    font-size: 2rem;
+  }
+}
+
+.home-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* MATCHES YOUR RIGHT SIDE BOXES */
+
+.date-box {
+  border: 3px solid #163b6b;
+  border-radius: 14px;
+  padding: 25px;
+  background: #0f2c4d;
+  text-align: center;
+}
+
+.date-box div {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.info-box {
+  border: 3px solid #163b6b;
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.info-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f2c4d;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info-box p {
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #163b6b;
+}
