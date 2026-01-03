@@ -3,7 +3,7 @@ import "../styles/Home.css";
 
 export default function Home() {
   const [currentTime, setCurrentTime] = React.useState(new Date());
-  const [timeRemaining, setTimeRemaining] = React.useState(60); // 60 seconds = 1 minute
+  const [timeRemaining, setTimeRemaining] = React.useState(0);
   const [isCutoff, setIsCutoff] = React.useState(false);
 
   // Current time update
@@ -14,37 +14,21 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  // Countdown timer
   React.useEffect(() => {
-    if (timeRemaining <= 0) {
-      setIsCutoff(true);
-      return;
+  const socket = new WebSocket("ws://localhost:5000");
+
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+
+    if (data.type === "COUNTDOWN_UPDATE") {
+      setTimeRemaining(data.remaining);
+      setIsCutoff(data.isCutoff);
     }
+  };
 
-    const countdown = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          clearInterval(countdown);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+  return () => socket.close();
+}, []);
 
-    return () => clearInterval(countdown);
-  }, [timeRemaining]);
-
-  // Handle cutoff and restart
-  React.useEffect(() => {
-    if (!isCutoff) return;
-
-    const cutoffTimer = setTimeout(() => {
-      setIsCutoff(false);
-      setTimeRemaining(60); // Reset to 1 minute
-    }, 10000); // 10 seconds cutoff
-
-    return () => clearTimeout(cutoffTimer);
-  }, [isCutoff]);
 
   const governors = [
     { number: 1, name: "Juan Dela Cruz", percent: 90 },
