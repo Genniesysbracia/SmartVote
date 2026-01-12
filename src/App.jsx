@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Vote from './pages/Vote';
 import './App.css';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/vote" element={<Vote />} />
             <Route 
               path="/login" 
               element={

@@ -1,0 +1,182 @@
+.vote-page {
+  width: 100%;
+  padding: 0 0 3rem 0;
+}
+
+.vote-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.vote-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.9rem 1.1rem;
+  border-radius: 6px 6px 0 0;
+}
+
+.vote-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.vote-doc-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(26, 54, 93, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a365d;
+}
+
+.vote-header-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #1a365d;
+  text-transform: uppercase;
+}
+
+.vote-secured {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(0, 0, 0, 0.55);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.vote-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  padding: 1rem;
+}
+
+.vote-scroll {
+  max-height: calc(100vh - 220px);
+  overflow: auto;
+  padding-right: 0.5rem;
+}
+
+.vote-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.vote-scroll::-webkit-scrollbar-thumb {
+  background: rgba(26, 54, 93, 0.35);
+  border-radius: 999px;
+}
+
+.vote-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+}
+
+.ballot-section {
+  border: 1px solid rgba(26, 54, 93, 0.18);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.ballot-section-header {
+  background: #132b4a;
+  color: #ffffff;
+  padding: 0.75rem 0.9rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.ballot-section-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ballot-section-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.ballot-section-body {
+  background: #f6f7f9;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.candidate-row {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(26, 54, 93, 0.25);
+  border-radius: 8px;
+  padding: 0.8rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.candidate-row.selected {
+  border-color: #1a365d;
+  box-shadow: 0 0 0 2px rgba(26, 54, 93, 0.15);
+}
+
+.candidate-radio {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1.8px solid rgba(26, 54, 93, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: transparent;
+}
+
+.candidate-radio.checked {
+  background: #2b6cb0;
+  border-color: #2b6cb0;
+  color: #ffffff;
+}
+
+.candidate-name {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.candidate-pill {
+  background: #2b6cb0;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.vote-footer {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.vote-footer-input {
+  width: min(520px, 100%);
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+}

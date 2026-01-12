@@ -1,46 +1,51 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mysql-master:
     image: mysql:8.0
     container_name: mysql-master
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: voterly
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_USER: repl
+      MYSQL_PASSWORD: replpassword
     ports:
-      - "3310:3306"
+      - "3307:3306"
+    command: >
+      --server-id=1
+      --log-bin=mysql-bin
+      --binlog-format=ROW
+      --gtid-mode=ON
+      --enforce-gtid-consistency=ON
+      --binlog-do-db=voterly
     volumes:
-      - mysql-master-data:/var/lib/mysql
-      - ./mysql/master/my.cnf:/etc/mysql/conf.d/replication.cnf
-    networks:
-      - mysql-network
-    command: --server-id=1 --log-bin=mysql-bin --binlog-format=ROW --binlog-do-db=voterly
+      - master-data:/var/lib/mysql
 
   mysql-slave:
     image: mysql:8.0
     container_name: mysql-slave
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: voterly
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_USER: repl
+      MYSQL_PASSWORD: replpassword
     ports:
-      - "3311:3306"
+      - "3308:3306"
+    command: >
+      --server-id=2
+      --log-bin=mysql-bin
+      --relay-log=mysql-relay-bin
+      --read-only=ON
+      --gtid-mode=ON
+      --enforce-gtid-consistency=ON
+      --replicate-do-db=voterly
     volumes:
-      - mysql-slave-data:/var/lib/mysql
-      - ./mysql/slave/my.cnf:/etc/mysql/conf.d/replication.cnf
-    networks:
-      - mysql-network
+      - slave-data:/var/lib/mysql
     depends_on:
       - mysql-master
-    command: --server-id=2 --log-bin=mysql-bin --binlog-format=ROW --binlog-do-db=voterly --relay-log=mysql-relay-bin --log-slave-updates=1 --read-only=1
-
-networks:
-  mysql-network:
-    driver: bridge
 
 volumes:
-  mysql-master-data:
-  mysql-slave-data:
+  master-data:
+  slave-data:
