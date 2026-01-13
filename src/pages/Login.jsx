@@ -4,7 +4,8 @@ import styles from "../styles/Login.module.css";
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    email: '',
+    email: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -12,9 +13,9 @@ export default function Login() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -24,12 +25,9 @@ export default function Login() {
     setError(null);
 
     try {
-      // In a real app, you would verify the email here
-      // For now, we'll just redirect to home
-      navigate('/');
-    } catch (error) {
-      console.error('Login error:', error);
-      setError(error.message || 'An error occurred during login');
+      navigate("/");
+    } catch (err) {
+      setError("An error occurred during login");
     } finally {
       setLoading(false);
     }
@@ -37,26 +35,55 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
-      <h2>Welcome Back</h2>
-      {error && <div className={styles.error}>{error}</div>}
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <button type="submit" disabled={loading} className={styles.submitButton}>
-          {loading ? 'Logging in...' : 'Continue with Email'}
-        </button>
-      </form>
-      <p className={styles.signupLink}>
-        Don't have an account? <Link to="/signup">Sign up</Link>
-      </p>
+      <div className={styles.imageSection}></div>
+
+      <div className={styles.loginSection}>
+        <h2>Login</h2>
+
+        {error && <div className={styles.error}>{error}</div>}
+
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label>Voter's ID or Email Address</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your Email or Gmail Address"
+              required
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter Password"
+              required
+            />
+          </div>
+
+          <Link to="/forgot-password" className={styles.forgot}>
+            Forgot Password?
+          </Link>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={styles.submitButton}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+
+          <p className={styles.signupLink}>
+            Don't have an account? <Link to="/signup">Create Account</Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }
