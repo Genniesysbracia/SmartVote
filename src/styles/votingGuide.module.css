@@ -1,0 +1,90 @@
+
+.guidepage {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.voteguide {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.voteguide h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f223a;
+}
+
+.voteguide p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+.infoBox {
+  background: #cbd8ea;
+  border: 1px solid #8fa6c8;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+
+.infoTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #0f223a;
+}
+
+.infoBox p {
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.sectionTitle {
+  background: #162742;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.guidelines {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  border: 1px solid #8d96a9;
+}
+
+.guideline {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.guideline:last-child {
+  margin-bottom: 0;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  background: #4f6cff;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.guideline h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.guideline p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
