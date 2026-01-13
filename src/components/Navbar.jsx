@@ -12,8 +12,8 @@ function Navbar() {
         {/* Right side - Navigation Links */}
         <div className="nav-links-container">
           <ul className="nav-links">
-            <li><Link to="/tally" className="nav-link">VOTE TALLY</Link></li>
-            <li><Link to="/guidelines" className="nav-link">VOTER'S GUIDELINES</Link></li>
+            <li><Link to="/tally" className="voteTally">VOTE TALLY</Link></li>
+            <li><Link to="/guidelines" className="voteGuidelines">VOTER'S GUIDELINES</Link></li>
             <li className="nav-button-container">
               <Link to="/vote" className="vote-button">VOTE</Link>
             </li>
