@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Vote from './pages/Vote';
+import VotingGuidelines from './pages/VotingGuidelines';
 import './App.css';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/vote" element={<Vote />} />
+            <Route path="/guidelines" element={<VotingGuidelines />}/>
             <Route 
               path="/login" 
               element={
