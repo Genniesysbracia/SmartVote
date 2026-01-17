@@ -157,6 +157,42 @@
   color: rgba(0, 0, 0, 0.75);
 }
 
+.candidate-main {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.candidate-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  min-width: 72px;
+}
+
+.candidate-percent {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #cbd5e0;
+  border-radius: 999px;
+}
+
 .candidate-pill {
   background: #2b6cb0;
   color: #ffffff;

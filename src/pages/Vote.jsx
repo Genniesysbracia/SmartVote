@@ -3,27 +3,27 @@ import styles from "../styles/Vote.module.css";
 
 export default function Vote() {
   const governorCandidates = [
-    { id: 1, name: "Juan Dela Cruz" },
-    { id: 2, name: "Maria Santos" },
-    { id: 3, name: "Roberto Reyes" },
-    { id: 4, name: "Angela Cruz" },
-    { id: 5, name: "Pedro Lim" },
+    { id: 1, name: "Juan Dela Cruz", percent: 90 },
+    { id: 2, name: "Maria Santos", percent: 50 },
+    { id: 3, name: "Roberto Reyes", percent: 40 },
+    { id: 4, name: "Angela Cruz", percent: 0 },
+    { id: 5, name: "Pedro Lim", percent: 0 },
   ];
 
   const viceGovernorCandidates = [
-    { id: 1, name: "Carlos Dizon" },
-    { id: 2, name: "Janella Robles" },
-    { id: 3, name: "Marco Villanueva" },
-    { id: 4, name: "Elaine Ramos" },
-    { id: 5, name: "Samuel Go" },
+    { id: 1, name: "Carlos Dizon", percent: 75 },
+    { id: 2, name: "Janella Robles", percent: 50 },
+    { id: 3, name: "Marco Villanueva", percent: 40 },
+    { id: 4, name: "Elaine Ramos", percent: 0 },
+    { id: 5, name: "Samuel Go", percent: 0 },
   ];
 
     const senatorCandidates = [
-    { id: 1, name: "Carlos Dizon" },
-    { id: 2, name: "Janella Robles" },
-    { id: 3, name: "Marco Villanueva" },
-    { id: 4, name: "Elaine Ramos" },
-    { id: 5, name: "Samuel Go" },
+    { id: 1, name: "Carlos Dizon", percent: 75 },
+    { id: 2, name: "Janella Robles", percent: 50 },
+    { id: 3, name: "Marco Villanueva", percent: 40 },
+    { id: 4, name: "Elaine Ramos", percent: 0 },
+    { id: 5, name: "Samuel Go", percent: 0 },
   ];
 
   const [selectedGovernorId, setSelectedGovernorId] = React.useState(null);
@@ -108,6 +108,7 @@ function BallotSection({ title, subtitle, candidates, selectedId, onSelect }) {
       <div className={styles["ballot-section-body"]}>
         {candidates.map((c) => {
           const isSelected = c.id === selectedId;
+          const percent = typeof c.percent === "number" ? c.percent : 0;
           return (
             <button
               key={c.id}
@@ -123,9 +124,17 @@ function BallotSection({ title, subtitle, candidates, selectedId, onSelect }) {
                 ) : null}
               </div>
 
-              <div className={styles["candidate-name"]}>{c.name}</div>
+              <div className={styles["candidate-main"]}>
+                <div className={styles["candidate-name"]}>{c.name}</div>
+                <div className={styles["progress-bar"]} aria-hidden="true">
+                  <div className={styles["progress-fill"]} style={{ width: `${percent}%` }} />
+                </div>
+              </div>
 
-              {isSelected ? <div className={styles["candidate-pill"]}>Selected</div> : null}
+              <div className={styles["candidate-right"]}>
+                <div className={styles["candidate-percent"]}>{percent}%</div>
+                {isSelected ? <div className={styles["candidate-pill"]}>Selected</div> : null}
+              </div>
             </button>
           );
         })}
